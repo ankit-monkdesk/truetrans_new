@@ -7,8 +7,8 @@ class Profile extends Component {
             <div className="Edit Profile">
                 <div id="sc-edprofile">
                     <h1>Edit Profile Form</h1>
-                    <div class="sc-container">
-                        <img src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png" class="w3-round" alt="Norway" />
+                    <div className="sc-container">
+                        <img src="http://pluspng.com/img-png/user-png-icon-male-user-icon-512.png" className="w3-round" alt="Norway" />
                         <input type="text" placeholder="Name" />
                         <input type="text" placeholder="Email Address" />
                         <input type="submit" value="Update Profile" />
