@@ -9,6 +9,7 @@ import Bank_Cashbook from './Bank_Cashbook/Bank_Cashbook';
 import Reports from './Reports/Reports';
 import Master from './Master/Master';
 import Add_company from './Add_company/Add_company';
+import Basic_Configuration from './Basic_Configuration/Basic_Configuration';
  
 
 /**STYLE COMPONET CSS HERE */
@@ -374,6 +375,7 @@ class Dashboard extends Component {
                            <Route path="/reports" component={Reports}  />
                            <Route path="/master" component={Master} />
                            <Route path="/addcompany" component={Add_company} /> 
+                           <Route path="/basic_configuration" component={Basic_Configuration} />
                     </Content> 
                     </Switch>
                

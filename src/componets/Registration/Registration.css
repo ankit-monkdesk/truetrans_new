@@ -100,7 +100,7 @@ button#verifymobileno {
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
-label {
+/* label {
     color: #999;
     font-size: 18px;
     font-weight: normal;
@@ -110,7 +110,7 @@ label {
     top: 10px;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
-}
+} */
 .buttonui {
     position: relative;
     padding: 8px 45px;
@@ -604,4 +604,9 @@ a.prof_link {
     padding: 0.25em 1em;
     -webkit-transition: 0.5s all ease-out;
     text-decoration: none;
+}
+
+.radio_configration > input {
+    width: 6% !IMPORTANT;
+    float: none !important;
 }
