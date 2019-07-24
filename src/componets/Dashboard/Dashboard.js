@@ -330,7 +330,8 @@ class Dashboard extends Component {
                 <Dropdowncont>
                    <Link className="prof_link" to="/profile" >Profile</Link>
                    <Link className="prof_link" onClick={this.logout.bind(this)}>Logout</Link>
-                   <Link className="prof_link" to="/basic_configuration">Basic Configuration</Link>
+                   {AllFormData.data.data.tpsData.user_type ==='Admin' && <Link className="prof_link" to="/basic_configuration">Basic Configuration</Link>}
+                   
                 </Dropdowncont>           
           </Dropdown>
 
