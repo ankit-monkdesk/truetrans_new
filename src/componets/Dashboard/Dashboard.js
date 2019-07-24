@@ -212,8 +212,12 @@ width: auto;
       position: relative;
       display: inline-block;
       float: right;
+      cursor: pointer;
       &:hover ${Dropdowncont}{
         display:block;
+        position: absolute;
+    right: 0;
+    width: 200px;
       }
  `;
  const IconDrop = styled.i`
@@ -329,8 +333,9 @@ class Dashboard extends Component {
                 <IconDrop className="fa fa-caret-down"></IconDrop>
                 <Dropdowncont>
                    <Link className="prof_link" to="/profile" >Profile</Link>
-                   <Link className="prof_link" onClick={this.logout.bind(this)}>Logout</Link>
                    {AllFormData.data.data.tpsData.user_type ==='Admin' && <Link className="prof_link" to="/basic_configuration">Basic Configuration</Link>}
+                   <Link className="prof_link" onClick={this.logout.bind(this)}>Logout</Link>
+                  
                    
                 </Dropdowncont>           
           </Dropdown>

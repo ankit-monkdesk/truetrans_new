@@ -138,7 +138,6 @@ class Add_company extends Component {
                                 <textarea name="address" value={this.state.fields["address"]} onChange={this.handleChange.bind(this, "address")} placeholder="Address"></textarea>
                                 <span className="errorMsgcompany">{this.state.errors.address}</span>
                            
-
                             <div className="btncompany">
                             <input type="submit" onClick={this.AddCompanySend.bind(this)} className="save" value="Save" />
                             <input type="submit" className="save_close" value="Save & Next" />
