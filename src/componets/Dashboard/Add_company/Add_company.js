@@ -88,7 +88,7 @@ class Add_company extends Component {
         return(
             <div className="Add_company">
                 <div id="sc-add-company">
-                    <h1>Add Company Detail</h1>
+                    <h1>Add Company Details123</h1>
                     <div className="sc-container">
                         <form encType="multipart/form-data" className="add_company_form">
                             <div className="field_company">
