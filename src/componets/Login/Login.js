@@ -53,6 +53,7 @@ class Login extends React.Component{
          .then(response => {
            console.log(response.data);
            sessionStorage.setItem('formData',JSON.stringify(response));
+           localStorage.setItem('formData',JSON.stringify(response));
           //  const company_id = response.data.data.tpsData.company_id;
             // alert( response.data.data.tpsData.email);
           

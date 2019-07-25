@@ -244,6 +244,7 @@ class Dashboard extends Component {
   // }
   logout(){
     sessionStorage.removeItem('formData');
+    localStorage.removeItem('formData');
     this.props.history.push("/login");
   }
 
@@ -252,7 +253,7 @@ class Dashboard extends Component {
   render() {
     // const company_id = this.state.company_id;
     // alert(company_id);
-    const sessionData = sessionStorage.getItem('formData');
+    const sessionData = localStorage.getItem('formData');
     const AllFormData = JSON.parse(sessionData)
     return (
      
@@ -341,7 +342,6 @@ class Dashboard extends Component {
                 </Dropdowncont>           
           </Dropdown>
 
-          {/* <Button>+Add company</Button> */}
          
         </Header>
 {/*         
