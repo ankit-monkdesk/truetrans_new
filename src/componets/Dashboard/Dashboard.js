@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
+//import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
+import { Route,HashRouter as Router,Link,Switch} from 'react-router-dom';
 import styled from 'styled-components';
 import Profile from './Profile/Profile';
 import Lorry_Receipt from './Lorry_Receipt/Lorry_Receipt';
@@ -342,8 +343,8 @@ class Dashboard extends Component {
                   <Switch>
                     <Content>
                     
-                           <Route  exact path="/profile" component={Profile} /> 
-                           <Route  exact path="/lorry_receipt" component={Lorry_Receipt} />     
+                           <Route path="/profile" component={Profile} /> 
+                           <Route path="/lorry_receipt" component={Lorry_Receipt} />     
                            <Route path="/invoice" component={Invoice} />
                            <Route path="/challans" component={Challans} />
                            <Route path="/bank_cashbook"  component={Bank_Cashbook}  />

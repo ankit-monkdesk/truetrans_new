@@ -610,7 +610,13 @@ a.prof_link {
     width: 6% !IMPORTANT;
     float: none !important;
 }
-
+.check_number >input {
+    width: 3% !important;
+    float: none !important;
+}
+.radio_configration {
+    margin-top: 20px;
+}
 /*LIST COMPANY CSS*/
 .list_company {
     margin-top: 85px;
