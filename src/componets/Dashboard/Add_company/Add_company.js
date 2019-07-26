@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 class Add_company extends Component {
     constructor(){
         super()
@@ -8,16 +8,67 @@ class Add_company extends Component {
             errors: {}
         }
         this.handleChange = this.handleChange.bind(this);
-        this.AddCompanySend = this.AddCompanySend.bind(this);
+        this.AddCompanySendDetails = this.AddCompanySendDetails.bind(this);
     }
 
-    AddCompanySend(e){
+
+    AddCompanySendDetails(e){
         e.preventDefault();
-        if(this.handleValidation()){
-            alert("perfect");
-        }else{
-            alert("error");
-        }
+      if(this.handleValidation()){
+        let init = {
+          method: 'POST',
+          headers: { 'content-type': 'multipart/form-data' },
+          mode: 'cors',
+          cache: 'default',
+          dataType: 'json',
+          type:     'POST',
+          async:    true,
+        };
+         /**START GET LOCALSTORAGE DATA */
+
+         const sessionData = localStorage.getItem('formData');
+         const AllFormData = JSON.parse(sessionData);
+
+        /**END GET LOCALSTORAGE DATA */
+
+        const company_name = this.state.fields.legal_entity_name
+        const email = this.state.fields.email
+        const mobile_no = this.state.fields.mobile_no
+        const city = this.state.fields.city
+        const pan_no = this.state.fields.pan_no
+        const cin_no = this.state.fields.cin_no
+        const gst_no = this.state.fields.gst_no
+        const address = this.state.fields.address
+        const licence_id = AllFormData.data.data.tpsData.lid
+        const company_id = AllFormData.data.data.tpsData.company_id
+        const token = AllFormData.data.data.tpsData.token
+
+        let formData = new FormData();
+
+        formData.append('company_name', company_name);
+        formData.append('email', email);
+        formData.append('phone', mobile_no);
+        formData.append('city', city);
+        formData.append('pan_no', pan_no);
+        formData.append('cin_no', cin_no);
+        formData.append('gst_no', gst_no);
+        formData.append('address_line1', address);
+        formData.append('lid', licence_id);
+        formData.append('cid', company_id);
+        formData.append('token', token);
+      
+      axios.post('/tps_api/index.php?view=companysetup',formData,init)
+      .then(response => {
+        this.props.history.push("/list_company");
+      })
+      .catch(err => {
+        console.log(err);
+      })
+     }else{
+       alert("Please Fill Up Fields");
+    //    this.props.history.push("/register");
+     }
+      
     }
      /**VALIDATION ADD COMPANY FORM HERE..... */
      handleValidation(){
@@ -139,7 +190,7 @@ class Add_company extends Component {
                                 <span className="errorMsgcompany">{this.state.errors.address}</span>
                            
                             <div className="btncompany">
-                            <input type="submit" onClick={this.AddCompanySend.bind(this)} className="save" value="Save" />
+                            <input type="submit" onClick={this.AddCompanySendDetails.bind(this)} className="save" value="Save" />
                             <input type="submit" className="save_close" value="Save & Next" />
                             </div>
                         </form>
@@ -149,5 +200,4 @@ class Add_company extends Component {
         );
     }
 }
-
 export default Add_company;

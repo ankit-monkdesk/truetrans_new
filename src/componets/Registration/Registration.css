@@ -429,7 +429,7 @@ a {
     background: #f0f0f0;
     width: 80%;
     margin: 0 auto;
-    margin-top: 4%;
+    margin-top: 10%;
     margin-bottom: 2%;
     transition: opacity 1s;
     -webkit-transition: opacity 1s;
@@ -609,4 +609,63 @@ a.prof_link {
 .radio_configration > input {
     width: 6% !IMPORTANT;
     float: none !important;
+}
+
+/*LIST COMPANY CSS*/
+.list_company {
+    margin-top: 85px;
+}
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+    width: 100%;
+}
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: left;
+    vertical-align: bottom;
+}
+.pure-table th, .pure-table td {
+    padding: 0.5em 1em;
+}
+.pure-table td, .pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+.pure-table-odd td {
+    background-color: #f2f2f2;
+}
+/*LEFT MENU CSS*/
+.name_right_icon > i.fa.fa-angle-down {
+    position: relative;
+    right: 0;
+    top: 5px;
+    left: 71px;
+    font-size: 26px;
+}
+.master > i {
+    position: relative;
+    position: relative;
+    right: 0;
+    top: 5px;
+    left: 91px;
+    font-size: 26px;
+}
+ul.menu > li {
+    list-style: none;
+    color: #fff;
+    font-size: 16px;
+    padding-left: 30px;
+    margin: 15px 0px;
+}
+ul.menu > li > a {
+    color: #fff;
+    font-size: 16px;
 }

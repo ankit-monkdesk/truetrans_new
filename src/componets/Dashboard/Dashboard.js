@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
+//import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
+import { Route,BrowserRouter as Router,Link,Switch} from 'react-router-dom';
 import styled from 'styled-components';
 import Profile from './Profile/Profile';
 import Lorry_Receipt from './Lorry_Receipt/Lorry_Receipt';
@@ -10,7 +11,7 @@ import Reports from './Reports/Reports';
 import Master from './Master/Master';
 import Add_company from './Add_company/Add_company';
 import Basic_Configuration from './Basic_Configuration/Basic_Configuration';
- 
+import List_company from './Add_company/List_company';
 
 /**STYLE COMPONET CSS HERE */
 const LeftSidebar = styled.div`
@@ -73,7 +74,7 @@ const MenuSideBar = styled.div`
 width: 260px;
 height: calc(100vh - 75px);
 z-index: 4;
-overflow: auto;
+overflow: hidden;
 position: relative;
 `;
 
@@ -193,13 +194,13 @@ width: auto;
   }
 `;
 
- const ImgPro = styled.img`
-    float:right;
-    height: 30px;
-    margin: 10px;
-    cursor: pointer;
-    display: inline-block;
- `;
+//  const ImgPro = styled.img`
+//     float:right;
+//     height: 30px;
+//     margin: 10px;
+//     cursor: pointer;
+//     display: inline-block;
+//  `;
 
  const Dropdowncont = styled.div`
  display: none;
@@ -233,7 +234,13 @@ width: auto;
 
 
  
-
+ let LeftMenu = props =>  <Link to={props.link} onClick={props.click}>
+  <MenuSpace>
+    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
+    <Name className={props.iname}>{props.menuname}{props.fa_icon}</Name>
+    <Span></Span>
+  </MenuSpace>
+  </Link>;
 
 class Dashboard extends Component {
   // constructor(props) {
@@ -245,12 +252,15 @@ class Dashboard extends Component {
   logout(){
     sessionStorage.removeItem('formData');
     localStorage.removeItem('formData');
-    this.props.history.push("/login");
+    this.props.history.push("/");
   }
 
  
-
+  
   render() {
+   
+  
+
     // const company_id = this.state.company_id;
     // alert(company_id);
     const sessionData = localStorage.getItem('formData');
@@ -272,55 +282,19 @@ class Dashboard extends Component {
             </Logo>
             <MenuSideBar>
               <Ul>
+                {LeftMenu({link:'lorry_receipt',menuname:'Lorry Receipt (LR)'})}
 
-              <Link to="/lorry_receipt">
-                  <MenuSpace>
-                    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
-                    <Name>Lorry Receipt (LR)</Name>
-                    <Span></Span>
-                     </MenuSpace>
-              </Link>
+                {LeftMenu({link:'invoice',menuname:'Invoice'})}
+
+                {LeftMenu({link:'challans',menuname:'Challans'})}
+
+                {LeftMenu({link:'bank_cashbook',menuname:'Bank & Cash book'})}
+
+                {LeftMenu({link:'reports',menuname:'Reports'})}
+
+                {LeftMenu({link:'master',menuname:'Master',iname:'master',fa_icon:<i className="fa fa-angle-down"></i>})}
                
-
-               <Link to="/invoice">
-                  <MenuSpace>
-                    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
-                    <Name>Invoice</Name>
-                    <Span></Span>
-                  </MenuSpace>
-               </Link>
-
-               <Link to="/challans">
-                  <MenuSpace>
-                    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
-                    <Name>Challans</Name>
-                    <Span></Span>
-                  </MenuSpace>
-                </Link>
-
-                <Link to="/bank_cashbook">
-                  <MenuSpace>
-                    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
-                    <Name>Bank &Cash book</Name>
-                    <Span></Span>
-                  </MenuSpace>
-                </Link>
-                
-                <Link to="/reports">
-                  <MenuSpace>
-                    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
-                    <Name>Reports</Name>
-                    <Span></Span>
-                  </MenuSpace>
-                </Link>
-
-               <Link to="/master">
-                  <MenuSpace>
-                    <Icon src="https://img.icons8.com/ios-glyphs/30/000000/user-male-circle.png"/>
-                    <Name>Master</Name>
-                    <Span></Span>
-                  </MenuSpace>
-                </Link>
+                <Card></Card>
               </Ul>
             </MenuSideBar>
         </LeftSidebar>
@@ -360,9 +334,9 @@ class Dashboard extends Component {
                    Lorem Ipsum.</p>
               </div>
             </div> */}
-            <div className="cmp_name">
-              {AllFormData.data.data.tpsData.company_id ==='' ? <Link to="/addcompany"><Button>+Add company</Button> </Link>:'error'}
-              </div>
+            
+              {AllFormData.data.data.tpsData.company_id ==='' && AllFormData.data.data.tpsData.user_type ==='Admin' ? <div className="cmp_name"> <Link to="/addcompany"><Button>+Add company</Button> </Link></div>:''}
+              
          
                   <Switch>
                     <Content>
@@ -376,6 +350,7 @@ class Dashboard extends Component {
                            <Route path="/master" component={Master} />
                            <Route path="/addcompany" component={Add_company} /> 
                            <Route path="/basic_configuration" component={Basic_Configuration} />
+                           <Route path="/list_company" component={List_company} />
                     </Content> 
                     </Switch>
                
@@ -390,6 +365,50 @@ class Dashboard extends Component {
  
 }
 
+class Card extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+  
+  showMenu(event) {
+    event.preventDefault();
+    
+    this.setState({ showMenu: true }, () => {
+      document.addEventListener('click', this.closeMenu);
+    });
+  }
+  
+  closeMenu() {
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener('click', this.closeMenu);
+    });
+  }
 
-
+  render() {
+    return (
+      <div>
+        {LeftMenu({link:'',click:this.showMenu,menuname:'Company',iname:'name_right_icon',fa_icon:<i className="fa fa-angle-down"></i>})}
+        {
+          this.state.showMenu
+            ? (
+              <ul className="menu">
+                <li> <Link to="/addcompany">Add Company</Link> </li>
+                <li> <Link to="/list_company">List Company</Link> </li>
+              </ul>
+            )
+            : (
+              null
+            )
+        }
+      </div>
+    );
+  }
+}
 export default Dashboard;
