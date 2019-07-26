@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-const LabaleRadio = styled.label`
-
-`;
 
 
 class Basic_Configuration extends Component {

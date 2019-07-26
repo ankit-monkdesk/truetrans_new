@@ -662,10 +662,20 @@ ul.menu > li {
     list-style: none;
     color: #fff;
     font-size: 16px;
-    padding-left: 30px;
+    padding-left: 0px;
     margin: 15px 0px;
 }
 ul.menu > li > a {
     color: #fff;
     font-size: 16px;
+}
+.lr i {
+    position: relative;
+    right: 0;
+    top: 5px;
+    left: 14px;
+    font-size: 26px;
+}
+li.arrow_set i {
+    padding-right: 10px;
 }

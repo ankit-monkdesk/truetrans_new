@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-//import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
-import { Route,BrowserRouter as Router,Link,Switch} from 'react-router-dom';
+import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Profile from './Profile/Profile';
 import Lorry_Receipt from './Lorry_Receipt/Lorry_Receipt';
@@ -12,6 +11,7 @@ import Master from './Master/Master';
 import Add_company from './Add_company/Add_company';
 import Basic_Configuration from './Basic_Configuration/Basic_Configuration';
 import List_company from './Add_company/List_company';
+import Branch from './Master/Branch';
 
 /**STYLE COMPONET CSS HERE */
 const LeftSidebar = styled.div`
@@ -74,7 +74,8 @@ const MenuSideBar = styled.div`
 width: 260px;
 height: calc(100vh - 75px);
 z-index: 4;
-overflow: hidden;
+overflow-y: auto;
+overflow-x: hidden;
 position: relative;
 `;
 
@@ -229,7 +230,7 @@ width: auto;
  `;
  const Content = styled.div`
  margin-left: 270px;
- margin-top: 0px;
+ margin-top: 70px;
  `;
 
 
@@ -252,7 +253,7 @@ class Dashboard extends Component {
   logout(){
     sessionStorage.removeItem('formData');
     localStorage.removeItem('formData');
-    this.props.history.push("/");
+    this.props.history.push("/login");
   }
 
  
@@ -282,7 +283,8 @@ class Dashboard extends Component {
             </Logo>
             <MenuSideBar>
               <Ul>
-                {LeftMenu({link:'lorry_receipt',menuname:'Lorry Receipt (LR)'})}
+                <LR></LR>
+                {/* {LeftMenu({link:'lorry_receipt',menuname:'Lorry Receipt (LR)'})} */}
 
                 {LeftMenu({link:'invoice',menuname:'Invoice'})}
 
@@ -292,9 +294,8 @@ class Dashboard extends Component {
 
                 {LeftMenu({link:'reports',menuname:'Reports'})}
 
-                {LeftMenu({link:'master',menuname:'Master',iname:'master',fa_icon:<i className="fa fa-angle-down"></i>})}
-               
-                <Card></Card>
+                <Master1></Master1>
+                <Company></Company>
               </Ul>
             </MenuSideBar>
         </LeftSidebar>
@@ -310,7 +311,7 @@ class Dashboard extends Component {
                 <Dropdowncont>
                    <Link className="prof_link" to="/profile" >Profile</Link>
                    {AllFormData.data.data.tpsData.user_type ==='Admin' && <Link className="prof_link" to="/basic_configuration">Basic Configuration</Link>}
-                   <Link className="prof_link" onClick={this.logout.bind(this)}>Logout</Link>
+                   <Link className="prof_link" to="" onClick={this.logout.bind(this)}>Logout</Link>
                   
                    
                 </Dropdowncont>           
@@ -351,6 +352,7 @@ class Dashboard extends Component {
                            <Route path="/addcompany" component={Add_company} /> 
                            <Route path="/basic_configuration" component={Basic_Configuration} />
                            <Route path="/list_company" component={List_company} />
+                           <Route path="/branch" component={Branch}/>
                     </Content> 
                     </Switch>
                
@@ -364,8 +366,9 @@ class Dashboard extends Component {
   }
  
 }
-
-class Card extends Component {
+ 
+/**LEFT SIDE MENU DROPDOWN COMPANY */
+class Company extends Component {
   constructor() {
     super();
     
@@ -399,8 +402,114 @@ class Card extends Component {
           this.state.showMenu
             ? (
               <ul className="menu">
-                <li> <Link to="/addcompany">Add Company</Link> </li>
-                <li> <Link to="/list_company">List Company</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/addcompany">Add Company</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/list_company">List Company</Link> </li>
+              </ul>
+            )
+            : (
+              null
+            )
+        }
+      </div>
+    );
+  }
+}
+
+/**LEFT SIDE MENU DROPDOWN MASTER MENU */
+class Master1 extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+  
+  showMenu(event) {
+    event.preventDefault();
+    
+    this.setState({ showMenu: true }, () => {
+      document.addEventListener('click', this.closeMenu);
+    });
+  }
+  
+  closeMenu() {
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener('click', this.closeMenu);
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {LeftMenu({link:'master',click:this.showMenu,menuname:'Master',iname:'master',fa_icon:<i className="fa fa-angle-down"></i>})}
+        {
+          this.state.showMenu
+            ? (
+              <ul className="menu">
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/branch">Branch</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/consigner">Consigner</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/consignee">Consignee</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/supplier_truck_owner">Supplier / Truck Owner</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/truck_lorry">Truck No. / Lorry No.</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/bank_cash">Bank and Cash</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/tax_rate">Tax Rate</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/uom">UoM</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/payment">Mode of Payment </Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/account_ledger">Account Ledger </Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i> <Link to="/account_group">Account Group </Link> </li>
+              </ul>
+            )
+            : (
+              null
+            )
+        }
+      </div>
+    );
+  }
+}
+
+/**LEFT SIDE MENU DROPDOWN Lorry Receipt MENU */
+class LR extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
+  
+  showMenu(event) {
+    event.preventDefault();
+    
+    this.setState({ showMenu: true }, () => {
+      document.addEventListener('click', this.closeMenu);
+    });
+  }
+  
+  closeMenu() {
+    this.setState({ showMenu: false }, () => {
+      document.removeEventListener('click', this.closeMenu);
+    });
+  }
+
+  render() {
+    return (
+      <div>
+         {LeftMenu({link:'lorry_receipt',click:this.showMenu,menuname:'Lorry Receipt (LR)',iname:'lr',fa_icon:<i className="fa fa-angle-down"></i>})}
+        {/* {LeftMenu({link:'master',click:this.showMenu,menuname:'Master',iname:'master',fa_icon:<i className="fa fa-angle-down"></i>})} */}
+        {
+          this.state.showMenu
+            ? (
+              <ul className="menu">
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i><Link to="/create_booking_lr">Create LR / LR Booking</Link> </li>
+                <li className="arrow_set"><i className="fa fa-arrow-right"></i><Link to="/assign_lr">Assign LR</Link> </li>
               </ul>
             )
             : (

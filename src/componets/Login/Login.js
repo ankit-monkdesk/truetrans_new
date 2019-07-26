@@ -59,7 +59,7 @@ class Login extends React.Component{
           
            if(response.data.msgcode === 0){
             // alert(response.data.msgcode);
-            this.props.history.push("/dashboard");
+            this.props.history.push("/");
            }else{
               alert("Invalid username or Password");
              

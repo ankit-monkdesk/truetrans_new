@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Link } from 'react-router-dom';
+// import { HashRouter as Router,Link } from 'react-router-dom';
 import axios from 'axios';
 class List_company extends Component {
     componentWillMount() {
@@ -43,8 +43,7 @@ class List_company extends Component {
                             <td>722770130</td>
                             <td>HI THIS MY ADDRESS</td>
                             <td>
-                                <Link>Edit</Link>
-                                <Link>Delete</Link>
+                                <a href="#">Edit</a>
                             </td>
                         </tr>
 
