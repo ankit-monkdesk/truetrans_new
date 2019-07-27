@@ -48,7 +48,6 @@ class Login extends React.Component{
          formData.append('loginid', email);
          formData.append('pass', password);
        
-       
          axios.post('/tps_api/index.php?view=login', formData,init)
          .then(response => {
            console.log(response.data);
