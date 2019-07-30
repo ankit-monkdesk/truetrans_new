@@ -142,9 +142,7 @@ onChange(field, e){
                         <h1>True Transport Login</h1>
                         </hgroup>
                         <form name="login">
-                            <div className="alert alert-success" role="alert">
-                                This is a success alert—check it out!
-                            </div>
+                           
                         <div className="group">
                     <input ref="email" type="text" name="email" className="temail" placeholder="Enter Email or Phone No" 
                     value={this.state.fields["email"]} onChange={this.onChange.bind(this, "email")}  />
@@ -159,14 +157,15 @@ onChange(field, e){
                           <span style={{color: "red"}}>{this.state.errors["password"]}</span>
                           
                         </div>
-                        <button 
+                        <button
+                         
                         onClick={this.login.bind(this)} type="button" className="buttonui "> 
                         <span> Login </span>
                                 <div className="ripples buttonRipples"><span className="ripplesCircle"></span></div>
-                            </button>        
+                        </button>        
                         </form>
                         <div className="powered">
-                        <Link to="/register" >Create New Register</Link>
+                        Create New<Link to="/register" > Register</Link>
                         </div>
                     </div>
               </div>

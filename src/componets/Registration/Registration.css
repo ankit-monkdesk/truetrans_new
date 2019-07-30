@@ -3,7 +3,7 @@ hgroup {
     text-align: center;
     margin-top: 3em;
     /* opacity: 0.7; */
-    padding: 2px;
+    padding: 20px;
     background: #ef6644;
 }
 form {
@@ -167,13 +167,14 @@ button#verifymobileno {
     background: rgba(255, 255, 255, 0.25);
 }
 .powered {
-    padding: 10px;
+    font-size: medium;
+    padding: 20px;
     margin-top: -16px;
     line-height: 25px;
     background: #ef6644;
 }
 .powered a {
-    color: #fff;
+    color: #0056b3;
     text-decoration: none;
 }
 div.background1 {
@@ -429,7 +430,7 @@ a {
     background: #f0f0f0;
     width: 80%;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-bottom: 2%;
     transition: opacity 1s;
     -webkit-transition: opacity 1s;
@@ -535,7 +536,7 @@ a {
 form.add_company_form {
     padding: 0;
     background: transparent;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
   div#sc-add-company input[type="submit"]:hover {
     background: #2288bb;
@@ -606,6 +607,7 @@ a.prof_link {
     text-decoration: none;
 }
 
+/*Basic Configration */
 .radio_configration > input {
     width: 6% !IMPORTANT;
     float: none !important;
@@ -617,6 +619,74 @@ a.prof_link {
 .radio_configration {
     margin-top: 20px;
 }
+.nav-tabs {
+    font-size: medium;
+    border-bottom: 1px solid #dee2e6;
+}
+.tab-content {
+    font-size: medium;
+}
+.btn_config {
+    margin-top: 20%;
+}
+button#dropdownMenu {
+    font-size: 20px;
+}
+button#dropdownMenuButton {
+    font-size: 20px;
+}
+.open>.dropdown-menu {
+    display: block;
+    font-size: 15px;
+   
+    padding: 10px;
+}
+.dropdown-menu{
+    min-width: 18rem;
+}
+form.email_form {
+    min-height: 300px;
+}
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(0,0,0, 0.5);
+  }
+  .popup_inner {
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 30%;
+    bottom: 30%;
+    margin: auto;
+    background: white;
+  }
+  .popup_inner>a {
+    position: absolute;
+    right: 0px;
+    top: -7px;
+    margin: auto;
+    font-size: 25px;
+    cursor: pointer;
+}
+.customer_label {
+    padding: 30px;
+}
+.popup_inner>button {
+    font-size: medium;
+    margin-left: 30px;
+}
+.dropdown {
+    display: inline-flex;
+}
+
+
 /*LIST COMPANY CSS*/
 .list_company {
     margin-top: 85px;

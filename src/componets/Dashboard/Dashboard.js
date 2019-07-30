@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 //import { Route,HashRouter as Router,Link,Switch } from 'react-router-dom';
 import { Route,HashRouter as Router,Link,Switch} from 'react-router-dom';
 import styled from 'styled-components';
+
+/* Components */
 import Profile from './Profile/Profile';
 import Lorry_Receipt from './Lorry_Receipt/Lorry_Receipt';
 import Invoice from './Invoice/Invoice';
@@ -232,6 +234,7 @@ width: auto;
  const Content = styled.div`
  margin-left: 270px;
  margin-top: 70px;
+ font-size: medium;
  `;
 
 
@@ -254,7 +257,7 @@ class Dashboard extends Component {
   logout(){
     sessionStorage.removeItem('formData');
     localStorage.removeItem('formData');
-    this.props.history.push("/login");
+    this.props.history.push("/");
   }
 
  
@@ -267,6 +270,7 @@ class Dashboard extends Component {
     // alert(company_id);
     const sessionData = localStorage.getItem('formData');
     const AllFormData = JSON.parse(sessionData)
+
     return (
      
       <div className="main_dashboard">
@@ -355,7 +359,7 @@ class Dashboard extends Component {
                            <Route path="/list_company" component={List_company} />
                            <Route path="/branch" component={Branch}/>
                     </Content> 
-                    </Switch>
+                  </Switch>
                
            </div> 
             </Router>
