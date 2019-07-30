@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/ankit-monkdesk/truetrans_new/static/css/main.dbfd1cbd.chunk.css",
-    "main.js": "/ankit-monkdesk/truetrans_new/static/js/main.a39f6df1.chunk.js",
-    "main.js.map": "/ankit-monkdesk/truetrans_new/static/js/main.a39f6df1.chunk.js.map",
-    "runtime~main.js": "/ankit-monkdesk/truetrans_new/static/js/runtime~main.ba17d499.js",
-    "runtime~main.js.map": "/ankit-monkdesk/truetrans_new/static/js/runtime~main.ba17d499.js.map",
-    "static/css/2.e1e3e9a4.chunk.css": "/ankit-monkdesk/truetrans_new/static/css/2.e1e3e9a4.chunk.css",
-    "static/js/2.1824de76.chunk.js": "/ankit-monkdesk/truetrans_new/static/js/2.1824de76.chunk.js",
-    "static/js/2.1824de76.chunk.js.map": "/ankit-monkdesk/truetrans_new/static/js/2.1824de76.chunk.js.map",
-    "index.html": "/ankit-monkdesk/truetrans_new/index.html",
-    "precache-manifest.180b62ce6e77ff6df83ec9a34f8b6060.js": "/ankit-monkdesk/truetrans_new/precache-manifest.180b62ce6e77ff6df83ec9a34f8b6060.js",
-    "service-worker.js": "/ankit-monkdesk/truetrans_new/service-worker.js",
-    "static/css/2.e1e3e9a4.chunk.css.map": "/ankit-monkdesk/truetrans_new/static/css/2.e1e3e9a4.chunk.css.map",
-    "static/css/main.dbfd1cbd.chunk.css.map": "/ankit-monkdesk/truetrans_new/static/css/main.dbfd1cbd.chunk.css.map",
-    "static/media/font-awesome.min.css": "/ankit-monkdesk/truetrans_new/static/media/fontawesome-webfont.fee66e71.woff"
+    "main.css": "/truetrans_new/static/css/main.dbfd1cbd.chunk.css",
+    "main.js": "/truetrans_new/static/js/main.a39f6df1.chunk.js",
+    "main.js.map": "/truetrans_new/static/js/main.a39f6df1.chunk.js.map",
+    "runtime~main.js": "/truetrans_new/static/js/runtime~main.0e54dd2c.js",
+    "runtime~main.js.map": "/truetrans_new/static/js/runtime~main.0e54dd2c.js.map",
+    "static/css/2.77e5c338.chunk.css": "/truetrans_new/static/css/2.77e5c338.chunk.css",
+    "static/js/2.00757443.chunk.js": "/truetrans_new/static/js/2.00757443.chunk.js",
+    "static/js/2.00757443.chunk.js.map": "/truetrans_new/static/js/2.00757443.chunk.js.map",
+    "index.html": "/truetrans_new/index.html",
+    "precache-manifest.ecd597f228ec417d5212d2096ea8e754.js": "/truetrans_new/precache-manifest.ecd597f228ec417d5212d2096ea8e754.js",
+    "service-worker.js": "/truetrans_new/service-worker.js",
+    "static/css/2.77e5c338.chunk.css.map": "/truetrans_new/static/css/2.77e5c338.chunk.css.map",
+    "static/css/main.dbfd1cbd.chunk.css.map": "/truetrans_new/static/css/main.dbfd1cbd.chunk.css.map",
+    "static/media/font-awesome.min.css": "/truetrans_new/static/media/fontawesome-webfont.fee66e71.woff"
   }
 }
