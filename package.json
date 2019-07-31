@@ -2,7 +2,7 @@
   "name": "true",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://ankit-monkdesk.github.io/truetrans_new",
+  "homepage":"http://ankit-monkdesk.github.io/truetrans_new",
 
   "dependencies": {
     "axios": "^0.19.0",

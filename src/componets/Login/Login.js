@@ -61,7 +61,6 @@ class Login extends React.Component{
             this.props.history.push("/dashboard");
            }else{
               alert("Invalid username or Password");
-             
           }
            
          })
