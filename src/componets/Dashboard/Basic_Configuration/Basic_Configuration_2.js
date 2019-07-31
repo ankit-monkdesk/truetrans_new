@@ -14,23 +14,23 @@ class Basic_Configuration_2 extends Component{
             manage_cost_center:"manage_cost_center_yes",
             showPopup_C: false,
             showPopup_S: false,
-            fromChild_c: '',
-            fromChild_s:''
+            fromChild_c: [],
+            fromChild_s:[]
         };
       
       }
 
       handleData(data) {
         this.setState({
-          fromChild_c: data
+          fromChild_c:[...this.state.fromChild_c, data]
         });
-        sessionStorage.setItem('fromChild_c',JSON.stringify(data));
+       
       }
       handleData_s(data) {
         this.setState({
-          fromChild_s: data
+          fromChild_s: [...this.state.fromChild_s, data]
         });
-        sessionStorage.setItem('fromChild_s',JSON.stringify(data));
+      
       }
      
       togglePopup_C() {
@@ -47,8 +47,11 @@ class Basic_Configuration_2 extends Component{
 
 
     render(){
-      const Customer_data =  sessionStorage.getItem('fromChild_c');
-      const Supplier_data =  sessionStorage.getItem('fromChild_s');
+
+       var values = this.state.fromChild_c;
+       var values_S = this.state.fromChild_s;
+     
+     
       
         return(
             <div className="basic_configuration">
@@ -97,9 +100,14 @@ class Basic_Configuration_2 extends Component{
                             <div className="dropdown">
                                <label>Customer Label :  </label>
                                 <select>
-                                   <option >1.{Customer_data}</option>
+                                {values.map(function (value) {
+                                   return <option >{value}</option>
+                                  
+                                  })}
+                                  <option>Options</option>
+                                   {/* <option >1.{Customer_data}</option> */}
                                    {/* <option >1.{this.state.fromChild_c}</option> */}
-                                   <option>option - 2</option>
+                                 
                                  </select>
                                  <button className="btn btn-info"  onClick={this.togglePopup_C.bind(this)}>+Add new</button>
                             </div>
@@ -112,10 +120,12 @@ class Basic_Configuration_2 extends Component{
                            <label>Supplier Label :</label>
                             
                             <select>
-                              {/* <option >1.{this.state.fromChild_s}</option> */}
-                              <option >1.{ Supplier_data}</option>
-                              Supplier_data
-                              <option >option - 2</option>
+                            {values_S.map(function (value) {
+                                   return <option >{value}</option>
+                                  
+                                  })}
+                            
+                              <option >Options</option>
                             </select>
                             <button className="btn btn-info"  onClick={this.togglePopup_S.bind(this)}>+Add new</button>
                             </div>
@@ -200,7 +210,7 @@ class Basic_Configuration_2 extends Component{
           
             <button className="btn btn-danger" onClick={this.props.closePopup}>Cancel</button>
             <button className="btn btn-success" type="submit" >+ Add new</button>
-            <a onClick={this.props.closePopup}> <i class="fa fa-times-circle"></i></a>
+            <a onClick={this.props.closePopup}> <i className="fa fa-times-circle"></i></a>
             {/* <h5>Visible in child:<br />{this.state.inputField}</h5> */}
         </div>
         </form>
@@ -249,13 +259,13 @@ class Popup_S extends React.Component {
           <div className="customer_label">
             <label>Supplier Label : </label> 
             <input type="text"  value={this.state.inputField_s} 
-                 onChange={this.handleChange}   name="customer_label"   placeholder="Supplier Label " />
+                 onChange={this.handleChange}   name="Supplier_label"   placeholder="Supplier Label " />
             
           </div>
           
             <button className="btn btn-danger" onClick={this.props.closePopup}>Cancel</button>
             <button className="btn btn-success" type="submit">+ Add new</button>
-          <a onClick={this.props.closePopup}> <i class="fa fa-times-circle"></i></a>
+          <a onClick={this.props.closePopup}> <i className="fa fa-times-circle"></i></a>
 
         </div>
         </form>
