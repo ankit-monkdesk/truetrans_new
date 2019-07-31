@@ -3,7 +3,7 @@ import Basic_Configuration_1 from './Basic_Configuration_1';
 import Basic_Configuration_2 from './Basic_Configuration_2';
 import Basic_Configuration_3 from './Basic_Configuration_3';
 import Basic_Configuration_4 from './Basic_Configuration_4';
-import {Route,HashRouter as Router,Link,Switch} from 'react-router-dom';
+// import {Route,HashRouter as Router,Link,Switch} from 'react-router-dom';
 
 
 
