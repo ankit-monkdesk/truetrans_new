@@ -12,9 +12,9 @@ class Basic_Configuration_2 extends Component{
             owned_trucks: "owned_trucks_yes",
             manage_branches:"manage_branches_yes",
             manage_cost_center:"manage_cost_center_yes",
-            showPopup_c: false,
-            showPopup_s: false,
-            fromChild: '',
+            showPopup_C: false,
+            showPopup_S: false,
+            fromChild_c: '',
             fromChild_s:''
         };
       
@@ -22,30 +22,33 @@ class Basic_Configuration_2 extends Component{
 
       handleData(data) {
         this.setState({
-          fromChild: data
+          fromChild_c: data
         });
+        sessionStorage.setItem('fromChild_c',JSON.stringify(data));
       }
       handleData_s(data) {
         this.setState({
           fromChild_s: data
         });
+        sessionStorage.setItem('fromChild_s',JSON.stringify(data));
       }
      
-      togglePopup_c() {
+      togglePopup_C() {
         this.setState({
-          showPopup_c: !this.state.showPopup_c
+          showPopup_C: !this.state.showPopup_C
         });
       }
 
       togglePopup_S() {
         this.setState({
-            showPopup_s: !this.state.showPopup_s
+            showPopup_S: !this.state.showPopup_S
         });
       }
 
 
     render(){
-      
+      const Customer_data =  sessionStorage.getItem('fromChild_c');
+      const Supplier_data =  sessionStorage.getItem('fromChild_s');
       
         return(
             <div className="basic_configuration">
@@ -65,9 +68,9 @@ class Basic_Configuration_2 extends Component{
                               checked={this.state.owned_trucks === 'owned_trucks_yes'} onChange={(e) => this.setState({ owned_trucks:e.target.value })} /> Yes 
                             <input type="radio" name="owned_trucks" value="owned_trucks_no"
                              checked={this.state.owned_trucks === 'owned_trucks_no'} onChange={(e) => this.setState({ owned_trucks:e.target.value })}   />  No
-                                <div>
+                                {/* <div>
                                    { this.state.owned_trucks}
-                                </div>
+                                </div> */}
                             
                         </div>
                 
@@ -94,10 +97,11 @@ class Basic_Configuration_2 extends Component{
                             <div className="dropdown">
                                <label>Customer Label :  </label>
                                 <select>
-                                   <option >1.{this.state.fromChild}</option>
+                                   <option >1.{Customer_data}</option>
+                                   {/* <option >1.{this.state.fromChild_c}</option> */}
                                    <option>option - 2</option>
                                  </select>
-                                 <button className="btn btn-info"  onClick={this.togglePopup_c.bind(this)}>+Add new</button>
+                                 <button className="btn btn-info"  onClick={this.togglePopup_C.bind(this)}>+Add new</button>
                             </div>
                          </div>
                     </div>
@@ -108,7 +112,9 @@ class Basic_Configuration_2 extends Component{
                            <label>Supplier Label :</label>
                             
                             <select>
-                              <option >1.{this.state.fromChild_s}</option>
+                              {/* <option >1.{this.state.fromChild_s}</option> */}
+                              <option >1.{ Supplier_data}</option>
+                              Supplier_data
                               <option >option - 2</option>
                             </select>
                             <button className="btn btn-info"  onClick={this.togglePopup_S.bind(this)}>+Add new</button>
@@ -117,15 +123,15 @@ class Basic_Configuration_2 extends Component{
                     </div>
                 </div>
                
-                {this.state.showPopup_c ? 
-                    <Popup_c
+                {this.state.showPopup_C ? 
+                    <Popup_C
                         handlerFromParant={this.handleData}
-                        closePopup={this.togglePopup_c.bind(this)}
+                        closePopup={this.togglePopup_C.bind(this)}
                     />
                     : null
                     }
 
-                {this.state.showPopup_s ? 
+                {this.state.showPopup_S ? 
                     <Popup_S
                         handlerFromParant={this.handleData_s}
                         closePopup={this.togglePopup_S.bind(this)}
@@ -148,7 +154,7 @@ class Basic_Configuration_2 extends Component{
        
       }
         
-  class Popup_c extends React.Component {
+  class Popup_C extends React.Component {
 
     constructor() {
       super();
