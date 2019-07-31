@@ -346,7 +346,6 @@ class Dashboard extends Component {
          
                   <Switch>
                     <Content>
-                    
                            <Route path="/profile" component={Profile} /> 
                            <Route path="/lorry_receipt" component={Lorry_Receipt} />     
                            <Route path="/invoice" component={Invoice} />
