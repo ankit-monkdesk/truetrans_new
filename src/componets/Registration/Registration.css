@@ -6,6 +6,10 @@ hgroup {
     padding: 20px;
     background: #ef6644;
 }
+.group>span {
+    color: red;
+    font-size: medium;
+}
 form {
     padding: 30px;
     padding-top: 10px;
@@ -430,7 +434,7 @@ a {
     background: #f0f0f0;
     width: 80%;
     margin: 0 auto;
-    margin-top: 3%;
+    margin-top: 10%;
     margin-bottom: 2%;
     transition: opacity 1s;
     -webkit-transition: opacity 1s;
@@ -625,9 +629,15 @@ a.prof_link {
 }
 .tab-content {
     font-size: medium;
+    margin-top: 50px;
+}
+ul.nav.nav-tabs {
+    position: fixed;
+    background-color: #f0f0f0;
 }
 .btn_config {
     margin-top: 20%;
+
 }
 button#dropdownMenu {
     font-size: 20px;

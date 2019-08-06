@@ -15,7 +15,8 @@ import Add_company from './Add_company/Add_company';
 import Basic_Configuration from './Basic_Configuration/Basic_Configuration';
 import List_company from './Add_company/List_company';
 import Branch from './Master/Branch';
-
+import Basic_Configuration_2 from './Basic_Configuration/Basic_Configuration_2';
+import Basic_Configuration_3 from './Basic_Configuration/Basic_Configuration_3';
 /**STYLE COMPONET CSS HERE */
 const LeftSidebar = styled.div`
 width: 260px;
@@ -161,7 +162,7 @@ const Header = styled.header`
     display: block;
     padding: 10px 0;
     z-index: 1029;
-    position: absolute;
+    position: fixed;
     box-shadow: none;
     min-height: 50px;
     transition: all 150ms ease 0s;
@@ -169,7 +170,7 @@ const Header = styled.header`
     border-bottom: 0;
     border-radius: 3px;
     margin-bottom: 0;
-    background-color: #607d8b29;
+    background-color: #3399cc;
     top: 0;
     left: auto;
     right: 0;
@@ -248,12 +249,12 @@ width: auto;
   </Link>;
 
 class Dashboard extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //       company_id:''
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+        company_id:''
+    }
+  }
   logout(){
     sessionStorage.removeItem('formData');
     localStorage.removeItem('formData');
@@ -357,6 +358,9 @@ class Dashboard extends Component {
                            <Route path="/basic_configuration" component={Basic_Configuration} />
                            <Route path="/list_company" component={List_company} />
                            <Route path="/branch" component={Branch}/>
+                           <Route path="/basic_configuration_2" component={Basic_Configuration_2} /> 
+                           <Route path="/basic_configuration_3" component={Basic_Configuration_3} />
+
                     </Content> 
                   </Switch>
                

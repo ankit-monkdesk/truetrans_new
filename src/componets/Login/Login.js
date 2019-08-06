@@ -145,7 +145,7 @@ onChange(field, e){
                         <div className="group">
                     <input ref="email" type="text" name="email" className="temail" placeholder="Enter Email or Phone No" 
                     value={this.state.fields["email"]} onChange={this.onChange.bind(this, "email")}  />
-                     <span style={{color: "red"}}>{this.state.errors["email"]}</span>
+                     <span >{this.state.errors["email"]}</span>
              
                         </div>
 
@@ -153,7 +153,7 @@ onChange(field, e){
                         <div className="group">
                             <input ref="password" type="password" name="password" className="tpass" placeholder="Enter Password"
                value={this.state.fields["password"]} onChange={this.onChange.bind(this, "password")} /><span className="highlight"></span><span className="bar"></span>
-                          <span style={{color: "red"}}>{this.state.errors["password"]}</span>
+                          <span >{this.state.errors["password"]}</span>
                           
                         </div>
                         <button

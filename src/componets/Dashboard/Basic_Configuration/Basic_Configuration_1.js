@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Basic_Configuration_2 from './Basic_Configuration_2';
+import { hashHistory ,browserHistory} from 'react-router';
+import Basic_Configuration from './Basic_Configuration';
+
 
 
 
 class Basic_Configuration_1 extends Component {
     
-  constructor() {
-      super();
-      
+  constructor(props) {
+      super(props);
+      this.routeChange = this.routeChange.bind(this);
       this.state = {
          
           lr: "auto_number",
@@ -16,11 +20,20 @@ class Basic_Configuration_1 extends Component {
           receipt:"receipt_auto_number",
           payment:"payment_auto_number",
         
-         
+      
       };
     }
   
+    routeChange() {
+       alert("hrllo");
     
+       
+          //this.props.history.push("/basic_configuration_2");
+      
+        //window.location.hash = "/basic_configuration_2";
+     
+       
+      }
 
   render() {
     
@@ -28,7 +41,7 @@ class Basic_Configuration_1 extends Component {
     return (
      
       <div className="basic_configuration">
-          
+           {/* <div><Basic_Configuration /></div>  */}
     
       <div id="sc-add-company">
       <h1>Basic Configuration 1 </h1>
@@ -101,8 +114,9 @@ class Basic_Configuration_1 extends Component {
               <div className="btncompany">
                   <input type="submit"  className="save" value="Save" />
                   <input type="submit" className="save_close" value="Save & Next" />
-                  <button type="submit" className="save" value="Skip" >Skip</button>
+                <Link to="/basic_configuration_2"> <button  className="save">Skip</button></Link>
               </div>
+              
           </div>
       </div>
   </div>

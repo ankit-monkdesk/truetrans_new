@@ -3,7 +3,7 @@ import Basic_Configuration_1 from './Basic_Configuration_1';
 import Basic_Configuration_2 from './Basic_Configuration_2';
 import Basic_Configuration_3 from './Basic_Configuration_3';
 import Basic_Configuration_4 from './Basic_Configuration_4';
-// import {Route,HashRouter as Router,Link,Switch} from 'react-router-dom';
+import {Route,HashRouter as Router,Link,Switch} from 'react-router-dom';
 
 
 
@@ -17,6 +17,8 @@ class Basic_Configuration extends Component{
 
       return(
       <div>
+        
+
             <div  className="container">
 
               <ul className="nav nav-tabs">
@@ -26,6 +28,7 @@ class Basic_Configuration extends Component{
                 <li><a data-toggle="tab" href="#menu3">Basic_Configuration_4</a></li>
                 
               </ul>
+             
               
               <div className="tab-content">
                
@@ -41,18 +44,13 @@ class Basic_Configuration extends Component{
                     <div id="menu3" className="tab-pane ">
                     <Basic_Configuration_4 />
                     </div>
-            
-               
-               
-              
-            
-                
-              </div>
-             
+                  
             </div>
+          
            
-               
       </div>
+           </div>
+              
       );
   }
 }

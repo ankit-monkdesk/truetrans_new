@@ -138,7 +138,8 @@ class Registration extends React.Component{
           const company_id = response.data.data.tpsData.company_id;
           // localStorage.setItem('formData');
           if(msgcode===0){
-            this.props.history.push("/login");
+            alert("successfully Registred");
+            this.props.history.push("/");
           }
           this.setState({
             company_id:company_id

@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Basic_Configuration_1 from './Basic_Configuration_1';
+
+import Basic_Configuration_3 from './Basic_Configuration_3';
+import Basic_Configuration_4 from './Basic_Configuration_4';
+
 // import Popup from "reactjs-popup";
 
 class Basic_Configuration_2 extends Component{
@@ -55,9 +61,16 @@ class Basic_Configuration_2 extends Component{
       
         return(
             <div className="basic_configuration">
+            
+          
+           
+
+        
+
           
     
             <div id="sc-add-company">
+          
             <h1>Basic Configuration 2 </h1>
                 <div className="sc-container">
                     <form encType="multipart/form-data" className="add_company_form">
@@ -154,10 +167,11 @@ class Basic_Configuration_2 extends Component{
                     <div className="btn_config">
                         <input type="submit"  className="save" value="Save" />
                         <input type="submit" className="save_close" value="Save & Next" />
-                        <input type="submit"  className="save" value="Skip" />
+                     <Link to="/basic_configuration_3"><input type="submit"  className="save" value="Skip" /></Link>
                     </div>
                 </div>
             </div>
+            
         </div>
           );
         }
